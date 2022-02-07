@@ -35,6 +35,8 @@ export class Presentation {
       switch (choice) {
         case "1": // GET
           await api.get().then((collegues: Collegue[]) => {
+            console.log(collegues);
+            
             collegues.forEach((c) => console.log(c.prenom + " " + c.nom));
           });
           break;
@@ -45,7 +47,7 @@ export class Presentation {
           newCollegue.nom = await this.question("nom: ");
           newCollegue.prenom = await this.question("prénom: ");
           newCollegue.photo = await this.question("photo: ");
-          newCollegue.score = Number(await this.question("score: "));
+          // newCollegue.score = Number(await this.question("score: "));
           // ajout du collègue dans la db
           await api.post(newCollegue).then((data) => console.log(data));
           break;
