@@ -1,7 +1,7 @@
 import { createInterface } from "readline";
 import { readFileSync } from "fs";
-import { Api } from "./service.js";
-import { Collegue } from "./collegue.js";
+import { Api } from "./service";
+import { Collegue } from "./collegue";
 
 export class Presentation {
   // méthode pour séctionner une réponse utilisateur

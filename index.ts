@@ -1,4 +1,4 @@
-import { Presentation } from "./presentation.js";
+import { Presentation } from "./presentation";
 
 const ihm = new Presentation();
 
