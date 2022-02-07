@@ -5,14 +5,15 @@ export class Api {
    * api GET
    * @returns liste des collègues
    */
-  async get(): Promise<any> {
+  async get() {
     const url =
       "https://formation-angular-collegues.herokuapp.com/api/v1/collegues";
 
     try {
-      const res = await fetch(url);
-      const data = await res.json();
-      return data;
+      const response = await fetch(url);
+      if (response.ok) {
+        return response.json();
+      }
     } catch (err) {
       console.log("Erreur:", err);
     }
@@ -23,7 +24,7 @@ export class Api {
    * @param {*} newCollegue = objet collegue
    * @returns
    */
-  async post(newCollegue: Collegue): Promise<any> {
+  async post(newCollegue: Collegue) {
     const url =
       "https://formation-angular-collegues.herokuapp.com/api/v1/collegues";
 
@@ -33,8 +34,9 @@ export class Api {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newCollegue),
       });
-      const data = await response.json();
-      return data;
+      if (response.ok) {
+        return response.json();
+      }
     } catch (err) {
       console.log("Erreur:", err);
     }
@@ -57,8 +59,9 @@ export class Api {
           pseudo: pseudo,
         }),
       });
-      const data = await response.json();
-      return data;
+      if (response.ok) {
+        return response.json();
+      }
     } catch (err) {
       console.log("Erreur:", err);
     }

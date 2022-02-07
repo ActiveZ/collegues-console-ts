@@ -35,8 +35,6 @@ export class Presentation {
       switch (choice) {
         case "1": // GET
           await api.get().then((collegues: Collegue[]) => {
-            console.log(collegues);
-            
             collegues.forEach((c) => console.log(c.prenom + " " + c.nom));
           });
           break;
